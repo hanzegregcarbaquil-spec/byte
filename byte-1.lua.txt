@@ -4,7 +4,7 @@ local _gamePlaceId12 = 102857557939869
 local _Name17 = game:GetService('MarketplaceService'):GetProductInfo(_gamePlaceId12).Name
 
 local _call28 = _5:CreateWindow({
-    SubTitle = 'by sskint',
+    SubTitle = 'by Byte',
     Title = 'Byte',
     MinimizeKey = Enum.KeyCode.LeftShift,
     Acrylic = true,
