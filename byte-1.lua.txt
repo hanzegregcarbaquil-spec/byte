@@ -1,0 +1,100 @@
+local _5 = loadstring(game:HttpGet('https://github.com/dawid-scripts/Fluent/releases/latest/download/main.lua'))()
+local _call9 = game:GetService('HttpService')
+local _gamePlaceId12 = 102857557939869
+local _Name17 = game:GetService('MarketplaceService'):GetProductInfo(_gamePlaceId12).Name
+
+local _call28 = _5:CreateWindow({
+    SubTitle = 'by sskint',
+    Title = 'Byte',
+    MinimizeKey = Enum.KeyCode.LeftShift,
+    Acrylic = true,
+    Theme = 'Dark',
+    TabWidth = 160,
+    Size = UDim2.fromOffset(640, 520),
+})
+
+_5:SetTheme('Dark')
+task.delay(1, function()
+    local _call37 = game:GetService('CoreGui'):FindFirstChild('Fluent')
+    if _call37 then
+        _call37.Name = 'VitaUI'
+    end
+end)
+
+local _call40 = _call28:AddTab({
+    Title = 'Scripts',
+    Icon = 'rbxassetid://4483362458',
+})
+local _call42 = _call28:AddTab({
+    Title = 'Universal',
+    Icon = 'rbxassetid://6034509998',
+})
+local _call44 = _call28:AddTab({
+    Title = 'Extras',
+    Icon = 'rbxassetid://6031097228',
+})
+local _call46 = _call28:AddTab({
+    Title = 'Credits',
+    Icon = 'rbxassetid://6034509993',
+})
+
+_call40:AddParagraph({
+    Title = 'Current Game',
+    Content = _Name17,
+})
+_call40:AddSection('No Game Scripts Found')
+_call40:AddParagraph({
+    Title = 'PlaceId: ' .. _gamePlaceId12,
+    Content = 'No scripts available yet.',
+})
+
+_call44:AddButton({
+    Title = 'Infinite Yield',
+    Callback = function()
+        loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
+    end,
+})
+_call44:AddButton({
+    Title = 'Anti AFK',
+    Callback = function()
+        local _call79 = game:GetService('VirtualUser')
+        game:GetService('Players').LocalPlayer.Idled:Connect(function()
+            _call79:Button2Down(Vector2.new(0, 0), workspace.CurrentCamera.CFrame)
+            task.wait(1)
+            _call79:Button2Up(Vector2.new(0, 0), workspace.CurrentCamera.CFrame)
+        end)
+    end,
+})
+_call44:AddButton({
+    Title = 'Full Bright',
+    Callback = function()
+        local _call103 = game:GetService('Lighting')
+        _call103.Brightness = 2
+        _call103.ClockTime = 14
+        _call103.FogEnd = 100000
+        _call103.GlobalShadows = false
+        _call103.OutdoorAmbient = Color3.fromRGB(128, 128, 128)
+    end,
+})
+_call44:AddButton({
+    Title = 'Anti Lag',
+    Callback = function()
+        local _call110 = game:GetService('Lighting')
+        _call110.GlobalShadows = false
+        _call110.FogEnd = 9000000000
+        _call110.Brightness = 2
+        _call110.ClockTime = 14
+        for _, part in pairs(workspace:GetDescendants()) do
+            if part:IsA('BasePart') then
+                part.Material = Enum.Material.Plastic
+                part.Reflectance = 0
+            end
+        end
+    end,
+})
+
+_call46:AddSection('Byte by sskint')
+_call46:AddParagraph({
+    Title = 'Credits',
+    Content = 'Made by sskint',
+})
